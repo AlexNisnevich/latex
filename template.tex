@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsfonts,amsthm,sansmath} % math
+\usepackage[tone]{tipa} % linguistics
+\usepackage{parsetree,tree-dvips,linguex} % linguistics
+\usepackage{comment,delarray,enumerate,verbatim,graphicx} % misc
+
+%%% HEADER
+
+\def \classname {[Class]}
+\def \semester {[Semester]}
+\def \assignment {[Assignment]}
+
+\title{\classname\ --- \semester\ --- \assignment}
+\author{Alex Nisnevich}
+\markboth{\classname\ - \assignment\ - Alex Nisnevich}{\classname\ - \assignment\ - Alex Nisnevich}
+
+%%% PAGE STYLE
+
+\pagestyle{myheadings}
+
+\setlength{\topmargin}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\addtolength{\textwidth}{60pt}
+
+%%% phon_rule [https://github.com/AlexNisnevich/phon_rule]
+
+\newcommand{\ipa}[1]{\textipa{#1}}
+
+\newenvironment{phon_rule}{%
+  \begin{center}
+  \renewcommand\>{\ {\Large $\to$}\ }
+  \renewcommand{\/}{{\Large \ /\ }}
+  \newcommand{\when}{\/}
+  \renewcommand\_{\ $\rule{2em}{0.5pt}$\ }
+  \renewcommand\null{{\ \Huge \ipa{\o}}\ \ }
+
+  \newcommand{\phone}[1]{\ [\ipa{##1}]\ }
+  \newcommand{\phoneme}[1]{\ /\ipa{##1}/\ }
+
+  \newcommand{\cv}[1]{{\Large \textrm{##1}}}
+  \let\hash\# \renewcommand\#{ \cv{\hash} }
+
+  \newcommand{\features}[1]{
+    $\begin{array}[c][ {l} ]
+      \vspace{-1px}
+      ##1
+    \end{array}$
+  }
+  \newcommand{\cvfeatures}[2]{
+    $\begin{array}{c}
+       \cv{##1} \\
+       \begin{array}[c][ {l} ]
+         \vspace{-1px}
+         ##2
+       \end{array}
+    \end{array}$
+  }
+  \newcommand{\f}[2]{
+    ##1\,\,\rm{##2} \\
+  }
+
+  \newcommand{\oneof}[1]{$\begin{cases} ##1 \end{cases}$}
+}{%
+  \end{center}
+}
+
+\newcommand{\xipa}[1]{$^\text{x}$\ipa{#1}}
+\newcommand{\word}[1]{\textit{\ipa{#1}}}
+\newcommand{\into}{$\rightarrow\ $}
+
+%%% THEOREMS
+
+\newtheoremstyle{mytheorems} % name
+    {1em}                    % Space above
+    {1em}                    % Space below
+    {\itshape}                   % Body font
+    {}                           % Indent amount
+    {\scshape}                   % Theorem head font
+    {.}                          % Punctuation after theorem head
+    {.5em}                       % Space after theorem head
+    {}  % Theorem head spec (can be left empty, meaning ‘normal’)
+
+\newtheoremstyle{myremarks} % name
+    {1em}                    % Space above
+    {1em}                    % Space below
+    {}                   % Body font
+    {}                           % Indent amount
+    {\scshape}                   % Theorem head font
+    {.}                          % Punctuation after theorem head
+    {.5em}                       % Space after theorem head
+    {}  % Theorem head spec (can be left empty, meaning ‘normal’)
+
+\theoremstyle{mytheorems}
+\newcounter{theoremsandsuch}
+\newtheorem{theorem}[theoremsandsuch]{Theorem}
+\newtheorem{proposition}[theoremsandsuch]{Proposition}
+\newtheorem{definition}[theoremsandsuch]{Definition}
+\newtheorem{notation}[theoremsandsuch]{Notation}
+\newtheorem{corollary}[theoremsandsuch]{Corollary}
+\newtheorem{lemma}[theoremsandsuch]{Lemma}
+
+\theoremstyle{myremarks}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+
+%%%%%
+% END PREAMBLE
+%%%%%
+
+\begin{document}
+\maketitle
+
+\end{document}
